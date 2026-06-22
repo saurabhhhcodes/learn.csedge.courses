@@ -25,6 +25,37 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
    <script src="chatbox.js" defer></script>
 
+    <!-- Preloader Styles -->
+    <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-top-color: #22CFB9;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
     <!-- AOS.js -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--SEO Optimization-->
@@ -51,6 +82,9 @@
 </head>
 
 <body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
     <button id="goTopBtn" title="Go to top"><i class="uil uil-arrow-up"></i></button>
     <!--Navigation Bar-->
     <nav class="fixed-top">
@@ -130,8 +164,9 @@
                     top-notch quality and relevance.</p>
 
                 <button class="read-more-button" id="aboutpage" data-aos="fade-right">Read More</button>
+            </div>
             <div class="about-image">
-                <img src="./Images/AboutImage.png" style="scale: 1.5;" alt="About-US" data-aos="zoom-in">
+                <img src="./Images/AboutImage.png" alt="About-US" data-aos="zoom-in">
             </div>
         </div>
     </section>
@@ -454,18 +489,18 @@
                 CSEdge is an online internship platform that provides students with the opportunity to gain practical experience in the field of software development.
               </p>
               <div class="social">
-                <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-square-instagram"></i><a>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-square-x-twitter"></i><a>
-                <a href="#"><i class="fa-brands fa-square-github"></i></a>
+                <a href="https://youtube.com/@CSEdgeOfficial" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.instagram.com/csedgeofficial" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/csedge/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/CSEdgeOfficial" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://github.com/CSEdgeOfficial" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
               </div>
             </div>
             <div class="col1" id="Serv">
               <h3>Need Help ?</h3>
               <div class="links">
-                 <a href="#">Contact Us</a>
-                 <a href="#">Privacy Policy</a>
+                 <a href="#contact">Contact Us</a>
+                 <a href="./csedge.courses/privacypolicy.html">Privacy Policy</a>
                  <a href="#">Terms & Conditions</a>
                  <a href="#">Cancellation & Refund Policy</a>
                  <a href="#">Shipping and Delivery Policy</a>
@@ -475,11 +510,11 @@
            <div class="col1" id="useful-links">
               <h3>Learn More</h3>
               <div class="links">
-                  <a href="#">FAQ</a>
-                 <a href="#">Home</a>
-                 <a href="#">Services</a>
-                 <a href="#">About Us</a>
-                 <a href="#">Internships</a>
+                  <a href="#faq">FAQ</a>
+                 <a href="#hero">Home</a>
+                 <a href="#Services">Services</a>
+                 <a href="#AboutUS">About Us</a>
+                 <a href="#internship">Internships</a>
                  <a href="#">Verify Certificate</a>
               </div>
            </div>
@@ -686,6 +721,13 @@
         });
     </script>
     <script src="vanilla-tilt.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 600);
+        });
+    </script>
 </body>
 
 </html>

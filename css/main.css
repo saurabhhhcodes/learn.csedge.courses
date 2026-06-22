@@ -7,13 +7,38 @@ a {
 
 /* Footer CSS */
 .site-footer {
-  background-color: #f5f5f5;
-  padding: 30px 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 40px 0 20px;
+  position: relative;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #22CFB9, #007bff, #22CFB9);
 }
 
 .site-footer h6 {
   font-size: 18px;
   margin-bottom: 15px;
+  color: #22CFB9;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.site-footer h6::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: #22CFB9;
 }
 
 .site-footer ul {
@@ -26,22 +51,54 @@ a {
 }
 
 .site-footer a {
-  color: #777;
+  color: #b0b0c8;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .site-footer a:hover {
-  color: #333;
+  color: #22CFB9;
+  padding-left: 5px;
 }
 
 .site-footer hr {
   margin: 20px 0;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .site-footer .copyright-text {
   font-size: 14px;
   text-align: center;
   margin-bottom: 0;
+  color: #6c6c8a;
+}
+
+.site-footer .text-justify {
+  color: #b0b0c8;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.site-footer .social-icons {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.site-footer .social-icons li {
+  display: inline;
+  margin-right: 12px;
+}
+
+.site-footer .social-icons li a {
+  color: #b0b0c8;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.site-footer .social-icons li a:hover {
+  color: #22CFB9;
+  transform: translateY(-3px);
 }
 
 

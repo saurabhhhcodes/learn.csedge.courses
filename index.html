@@ -71,19 +71,50 @@
     #back-to-top:hover {
       background-color: #0056b3;
     }
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255,255,255,0.1);
+      border-top-color: #22CFB9;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 
-<body>
-  <style>
-    .card-text {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 3;
-    }
-  </style>
+  <body>
+    <div id="preloader">
+      <div class="loader"></div>
+    </div>
+    <style>
+      .card-text {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+      }
+    </style>
 
   <body>
     <style>
@@ -339,59 +370,53 @@
       </div>
       <style>
         .libutton {
-          display: flex;
-          flex-direction: column;
+          display: inline-flex;
+          align-items: center;
           justify-content: center;
-          padding: 7px;
+          padding: 8px 16px;
           text-align: center;
           outline: none;
           text-decoration: none !important;
           color: #ffffff !important;
-          width: 200px;
-          height: 32px;
-          border-radius: 16px;
+          width: auto;
+          height: 36px;
+          border-radius: 18px;
           background-color: #0A66C2;
           font-family: "SF Pro Text", Helvetica, sans-serif;
+          font-size: 0.85rem;
+          transition: all 0.3s ease;
+          border: 1px solid #0A66C2;
         }
     
         .libutton:hover {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding: 7px;
-          text-align: center;
-          outline: none;
-          text-decoration: none;
-          color: #0A66C2;
-          width: 200px;
-          height: 32px;
-          border-radius: 16px;
-          background-color: black;
-    
+          background-color: transparent;
+          color: #0A66C2 !important;
           border-color: #0A66C2;
-          font-family: "SF Pro Text", Helvetica, sans-serif;
+          transform: translateY(-2px);
         }
     
-        .social-icons {
+        .site-footer .social-icons {
           list-style: none;
           padding: 0;
+          margin-top: 10px;
         }
     
-        .social-icons li {
+        .site-footer .social-icons li {
           display: inline;
           margin-right: 10px;
         }
     
-        .social-icons li a {
-          color: #333;
-          font-size: 20px;
+        .site-footer .social-icons li a {
+          color: #b0b0c8;
+          font-size: 1.3rem;
+          transition: all 0.3s ease;
         }
     
-        .social-icons li a:hover {
-          color: #007bff;
+        .site-footer .social-icons li a:hover {
+          color: #22CFB9;
         }
       </style>
-      <hr style="border-top: 1px solid black;">
+      <hr>
       <!-- Copyright Section -->
       <div class="container">
         <div class="row">
@@ -456,6 +481,13 @@
   
 
 
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('preloader').classList.add('hidden');
+      }, 600);
+    });
+  </script>
   </body>
 
 </html>
